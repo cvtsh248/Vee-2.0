@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Tiles/Bricks/StoneBrick.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Tiles/Carpeted Brick/Carpet.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Tiles/Mossy_Stone/MOSSY_STONE2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Tiles/Mossy_Stone/MOSSY_STONE0.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Tiles/Mossy_Stone/MOSSY_STONETOP.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Tiles/Mossy_Stone/MOSSY_STONE1.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="Tiles" type="Node2D"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StoneBrick" type="Sprite" parent="."]
+position = Vector2( 16, 16 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StoneBrick"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoneBrick/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="CarpetBrick" type="Sprite" parent="."]
+position = Vector2( 80, 16 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CarpetBrick"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CarpetBrick/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="MossyStone0" type="Sprite" parent="."]
+position = Vector2( 144, 16 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MossyStone0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MossyStone0/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="MossyStone1" type="Sprite" parent="."]
+position = Vector2( 208, 16 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MossyStone1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MossyStone1/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="MossyStone2" type="Sprite" parent="."]
+position = Vector2( 272, 16 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MossyStone2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MossyStone2/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="MossyStone3" type="Sprite" parent="."]
+position = Vector2( 336, 16 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MossyStone3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MossyStone3/StaticBody2D"]
+visible = false
+shape = SubResource( 1 )

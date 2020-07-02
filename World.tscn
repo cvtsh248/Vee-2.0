@@ -1,0 +1,44 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://BaseTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Characters/Playable/Vee/Idle/VEEE_Idle-1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Characters/Playable/Vee/Idle/VEEE_Idle-5.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Characters/Playable/Vee/Idle/VEEE_Idle-2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Characters/Playable/Vee/Idle/VEEE_Idle-4.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Characters/Playable/Vee/Idle/VEEE_Idle-3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Characters/Playable/Vee/Walk/VEEE_walk-4.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Characters/Playable/Vee/Walk/VEEE_walk-3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Characters/Playable/Vee/Walk/VEEE_walk-2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Characters/Playable/Vee/Walk/VEEE_walk-1.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 10.0
+} ]
+
+[node name="World" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 131076, 5, 0, 393227, 5, 0, 393228, 5, 0, 393229, 5, 0, 524288, 5, 0, 524289, 5, 0, 524290, 5, 0, 524291, 5, 0, 524292, 5, 0, 524293, 5, 0, 524294, 5, 0, 524295, 5, 0, 524296, 5, 0, 524297, 5, 0, 524298, 5, 0, 524299, 5, 0, 524300, 5, 0, 524301, 5, 0, 524302, 5, 0, 524303, 5, 0, 589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 2, 0, 589829, 2, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 2, 0, 589834, 2, 0, 589835, 2, 0, 589836, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 5, 0, 589841, 5, 0, 589842, 5, 0, 589843, 5, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 2, 0, 655379, 2, 0 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
+frames = SubResource( 1 )
+animation = "Idle"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
+polygon = PoolVector2Array( 7.75, -15.5, 8, -8, 10.2267, -2.52899, 12.2312, 2.59367, 12.5, 7.625, 10.2267, 11.9481, 6.66306, 11.2799, 7.875, 15, -12.75, 15.125, -11.125, 11.5, -10.264, -0.524471, -7.375, -4.75, -8.375, -8.75, -6.70042, -14.1107, -4.5, -15.625 )
