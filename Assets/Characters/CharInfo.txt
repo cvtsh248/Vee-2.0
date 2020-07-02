@@ -1,0 +1,2 @@
+For NPC add your file to the NPC folder
+Make sure you have one folder with both piskel files
