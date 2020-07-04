@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://BaseTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
@@ -25,20 +25,49 @@ animations = [ {
 "speed": 10.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.6444, 14.5501 )
+
 [node name="World" type="Node2D"]
+scale = Vector2( 1.52716, 1.70295 )
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 0.874066, 0 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 131076, 5, 0, 393227, 5, 0, 393228, 5, 0, 393229, 5, 0, 524288, 5, 0, 524289, 5, 0, 524290, 5, 0, 524291, 5, 0, 524292, 5, 0, 524293, 5, 0, 524294, 5, 0, 524295, 5, 0, 524296, 5, 0, 524297, 5, 0, 524298, 5, 0, 524299, 5, 0, 524300, 5, 0, 524301, 5, 0, 524302, 5, 0, 524303, 5, 0, 589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 2, 0, 589829, 2, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 2, 0, 589834, 2, 0, 589835, 2, 0, 589836, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 5, 0, 589841, 5, 0, 589842, 5, 0, 589843, 5, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 2, 0, 655379, 2, 0 )
+tile_data = PoolIntArray( 131076, 5, 0, 393227, 5, 0, 393228, 5, 0, 393229, 5, 0, 458760, 5, 0, 524288, 5, 0, 524289, 5, 0, 524290, 5, 0, 524291, 5, 0, 524292, 5, 0, 524293, 5, 0, 524294, 5, 0, 524295, 5, 0, 524296, 5, 0, 524297, 5, 0, 524298, 5, 0, 524299, 5, 0, 524300, 5, 0, 524301, 5, 0, 524302, 5, 0, 524303, 5, 0, 589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 2, 0, 589829, 2, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 2, 0, 589834, 2, 0, 589835, 2, 0, 589836, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 5, 0, 589841, 5, 0, 589842, 5, 0, 589843, 5, 0, 655360, 2, 0, 655361, 2, 0, 655362, 2, 0, 655363, 2, 0, 655364, 2, 0, 655365, 2, 0, 655366, 2, 0, 655367, 2, 0, 655368, 2, 0, 655369, 2, 0, 655370, 2, 0, 655371, 2, 0, 655372, 2, 0, 655373, 2, 0, 655374, 2, 0, 655375, 2, 0, 655376, 2, 0, 655377, 2, 0, 655378, 2, 0, 655379, 2, 0 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="Vee" type="KinematicBody2D" parent="."]
+position = Vector2( 41.0811, 231.233 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Sprite" type="AnimatedSprite" parent="KinematicBody2D"]
+[node name="Sprite" type="AnimatedSprite" parent="Vee"]
 frames = SubResource( 1 )
 animation = "Idle"
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
-polygon = PoolVector2Array( 7.75, -15.5, 8, -8, 10.2267, -2.52899, 12.2312, 2.59367, 12.5, 7.625, 10.2267, 11.9481, 6.66306, 11.2799, 7.875, 15, -12.75, 15.125, -11.125, 11.5, -10.264, -0.524471, -7.375, -4.75, -8.375, -8.75, -6.70042, -14.1107, -4.5, -15.625 )
+[node name="RayCast2D" type="RayCast2D" parent="Vee"]
+enabled = true
+cast_to = Vector2( 20, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RayCast2D2" type="RayCast2D" parent="Vee"]
+enabled = true
+cast_to = Vector2( -20, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vee"]
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
