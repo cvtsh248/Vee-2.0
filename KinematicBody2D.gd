@@ -8,15 +8,18 @@ var count = 0
 func _ready():
 	set_safe_margin(2)
 	set_process_input(true)
+	$JumpDust.emitting = false
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
+
+	
 	if is_on_floor() == false:
 		motion.y += 20
 
 		if is_on_wall() == false:
 			jump = true
-			#$Sprite.play("Jump")
+			$Sprite.play("Jump")
 			
 		if is_on_wall() == true:
 			jump = false
@@ -33,18 +36,25 @@ func _physics_process(delta):
 	if is_on_floor() == true:
 		motion.y = 0
 		if Input.is_action_pressed("ui_up"):
-			motion.y = -500
+			motion.y = -350
+			$JumpDust.emitting = false
 			
 		if jump == true:
 			count += 1
 			if is_on_wall() == false:
-				pass
-				#$Sprite.play("Land")
+				#pass
+				if Input.is_action_pressed("ui_up") == false:
+					$JumpDust.emitting = true
+				
+				$Sprite.play("Land")
 			#motion.x = 0
 			
 		if count > 20:
 			count = 0
 			jump = false
+			
+			#$JumpDust.restart()
+			$JumpDust.emitting = false
 
 			
 		if jump == false:
